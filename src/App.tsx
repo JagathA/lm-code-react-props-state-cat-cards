@@ -92,13 +92,13 @@ function App(): JSX.Element {
 		]
 	);
 	
-	const catCount = cats.length;
-	console.log("Number of 😻: ", catCount);
+	
+	
 	return (
 		<>
 			<Navbar />
 			<Header 
-			count = {catCount}/>
+			catCount = {cats.length}/>
 
 			<main>
 				<div className='cards__wrapper'>{cats.map((cat, index) => (
