@@ -112,15 +112,15 @@ const images = [
 	}
 ];
 
-interface CatCardProps{
-    name: string;
-    species: string;
-    favFoods: Array<string>;
-    birthYear: number;
+interface CatCardProps {
+	name: string;
+	species: string;
+	favFoods: Array<string>;
+	birthYear: number;
 	catIndex: number;
- }
+}
 
- const CatCard: React.FC<CatCardProps> = (props) => {
+const CatCard: React.FC<CatCardProps> = (props) => {
 	// console.log(
 	// 	'CatCard receiving props from App?! Come in App?! 😸 Props received are: ',
 	// 	props
@@ -132,14 +132,16 @@ interface CatCardProps{
 			<p className='card__text'>Species: {props.species}</p>
 			<p className='card__text'>Favourite Food(s): {props.favFoods}</p>
 			<p className='card__text'>Birth Year: {props.birthYear}</p>
-			<CatImage 
-			image={images[props.catIndex].image}
-			altText={images[props.catIndex].altText}
-			licenceType={images[props.catIndex].licenceType}
-			licenceUrl={images[props.catIndex].licenceUrl}
-			attributionName={images[props.catIndex].attributionName}
-			attributionUrl={images[props.catIndex].attributionUrl}
-		/>
+			{props.catIndex < images.length && (
+				<CatImage
+					image={images[props.catIndex].image}
+					altText={images[props.catIndex].altText}
+					licenceType={images[props.catIndex].licenceType}
+					licenceUrl={images[props.catIndex].licenceUrl}
+					attributionName={images[props.catIndex].attributionName}
+					attributionUrl={images[props.catIndex].attributionUrl}
+				/>
+			)}
 		</div>
 	);
 };
